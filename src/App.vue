@@ -1,20 +1,16 @@
 <script setup></script>
 
 <template>
-	<div>Hello</div>
+	<div class="container mx-auto p-2.5 sm:py-5 sm:px-0">
+		<base-button label="Заказать в Москву" class="mb-2.5 sm:mb-0 sm:mr-5" />
+		<base-button label="Заказать в Санкт-Петербург" color="teal-600" />
+	</div>
 </template>
 
-<style scoped>
-	.logo {
-		height: 6em;
-		padding: 1.5em;
-		will-change: filter;
-		transition: filter 300ms;
-	}
-	.logo:hover {
-		filter: drop-shadow(0 0 2em #646cffaa);
-	}
-	.logo.vue:hover {
-		filter: drop-shadow(0 0 2em #42b883aa);
-	}
-</style>
+<style scoped></style>
+<script>
+	import BaseButton from './components/BaseButton.vue';
+	export default {
+		components: { BaseButton },
+	};
+</script>
