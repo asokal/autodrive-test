@@ -1,5 +1,5 @@
 <template>
-	<label :class="`${rootClasslist}`">
+	<label :class="`${rootClassList}`">
 		<span class="mb-1 block leading-5 text-gray-700" v-if="label">
 			{{ label }}
 		</span>
@@ -31,7 +31,7 @@
 				required: false,
 			},
 
-			rootClasslist: {
+			rootClassList: {
 				type: String,
 				required: false,
 			},
@@ -44,6 +44,11 @@
 			modelValue: {
 				type: String,
 				default: '',
+			},
+
+			error: {
+				type: [String, Array, Boolean],
+				required: false,
 			},
 		},
 	};
