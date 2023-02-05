@@ -50,11 +50,8 @@
 </template>
 
 <script>
-	import BaseButton from '@/components/BaseButton.vue';
-
 	export default {
 		name: 'request-form',
-		components: { BaseButton },
 
 		data() {
 			return {};

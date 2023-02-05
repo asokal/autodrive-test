@@ -42,7 +42,6 @@
 		methods: {
 			closeModal() {
 				this.$emit('close-modal');
-				console.log('this');
 			},
 		},
 
