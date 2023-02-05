@@ -26,9 +26,9 @@
 </template>
 
 <script>
-	import BaseButton from './components/BaseButton.vue';
-	import BaseModal from './components/BaseModal.vue';
-	import RequestForm from './components/RequestForm.vue';
+	import BaseButton from '@/components/BaseButton.vue';
+	import BaseModal from '@/components/BaseModal.vue';
+	import RequestForm from '@/components/RequestForm.vue';
 	export default {
 		components: { BaseButton, BaseModal, RequestForm },
 
