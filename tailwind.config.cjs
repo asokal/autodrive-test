@@ -8,6 +8,10 @@ module.exports = {
 			fontFamily: {
 				sans: ['Inter', ...defaultTheme.fontFamily.sans],
 			},
+
+			backgroundImage: {
+				'arrow-down': "url('./src/assets/img/arrow.svg')",
+			},
 		},
 	},
 	plugins: [],

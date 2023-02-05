@@ -6,7 +6,7 @@
 			@click="closeModal"
 		>
 			<div
-				class="w-full rounded-lg bg-white p-6 font-medium shadow-xl lg:w-1/2"
+				class="w-full rounded-lg bg-white p-6 font-medium shadow-xl lg:w-7/12"
 				@click.stop
 			>
 				<h2

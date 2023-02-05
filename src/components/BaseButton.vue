@@ -1,6 +1,6 @@
 <template>
 	<button
-		:class="`w-full rounded-md ${colorClass} py-2 px-4 font-medium text-white shadow-sm transition hover:brightness-110 sm:w-auto`"
+		:class="`w-full rounded-md ${colorClass} border py-1.5 px-4 text-base font-medium text-white shadow-sm transition hover:brightness-110 sm:w-auto`"
 	>
 		{{ label }}
 	</button>
@@ -26,13 +26,13 @@
 			colorClass() {
 				switch (this.color) {
 					case 'blue':
-						return 'bg-blue-500';
+						return 'bg-blue-500 border-blue-500';
 					case 'teal':
-						return 'bg-teal-600';
+						return 'bg-teal-600 border-teal-600';
 					case 'green':
-						return 'bg-green-600';
+						return 'bg-green-600 border-green-600';
 					default:
-						return 'bg-blue-500';
+						return 'bg-blue-500 border-blue-500';
 				}
 			},
 		},
