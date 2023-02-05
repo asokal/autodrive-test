@@ -2,8 +2,8 @@
 	<Teleport to="#modals">
 		<div
 			v-if="show"
-			class="fixed inset-0 flex items-center justify-center bg-gray-500 p-2.5 opacity-75 sm:p-10"
-			@click="$emit('close-modal')"
+			class="fixed inset-0 flex items-center justify-center bg-gray-500/75 p-2.5 sm:p-10"
+			@click="closeModal"
 		>
 			<div
 				class="w-full rounded-lg bg-white p-6 font-medium shadow-xl lg:w-1/2"
@@ -37,6 +37,21 @@
 				type: String,
 				required: true,
 			},
+		},
+
+		methods: {
+			closeModal() {
+				this.$emit('close-modal');
+				console.log('this');
+			},
+		},
+
+		created() {
+			document.addEventListener('keyup', (e) => {
+				if (e.keyCode === 27) {
+					this.closeModal();
+				}
+			});
 		},
 	};
 </script>
