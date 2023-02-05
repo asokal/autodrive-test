@@ -3,19 +3,21 @@
 		class="sm:grid-row-2 grid grid-cols-1 gap-5 sm:grid-cols-3 xl:grid-cols-4"
 	>
 		<label>
-			<span class="mb-1 block leading-5 text-gray-700">Телефон*</span>
+			<span class="mb-1 block leading-5 text-gray-700">Имя*</span>
 			<input
-				type="phone"
-				placeholder="+7 (___) ___-__-__"
+				type="text"
+				placeholder="Иван Иванов"
 				class="w-full rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm placeholder:text-gray-500"
 			/>
 		</label>
 
 		<label>
-			<span class="mb-1 block leading-5 text-gray-700">Имя*</span>
+			<span class="mb-1 block leading-5 text-gray-700">Телефон*</span>
 			<input
-				type="text"
-				placeholder="Иван Иванов"
+				type="phone"
+				v-maska
+				data-maska="+7 (###) ###-##-##"
+				placeholder="+7 (___) ___-__-__"
 				class="w-full rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm placeholder:text-gray-500"
 			/>
 		</label>
@@ -50,8 +52,11 @@
 </template>
 
 <script>
+	import { vMaska } from 'maska';
+
 	export default {
 		name: 'request-form',
+		directives: { maska: vMaska },
 
 		data() {
 			return {};
