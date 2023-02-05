@@ -10,7 +10,7 @@
 				@click.stop
 			>
 				<h2
-					class="mb-9 text-base leading-none text-gray-900 sm:mb-7 md:mb-6"
+					class="mb-9 text-2xl leading-none text-gray-900 sm:mb-7 md:mb-6"
 				>
 					{{ title }}
 				</h2>

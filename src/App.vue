@@ -20,7 +20,16 @@
 			:show="modalVisible"
 			@close-modal="modalVisible = false"
 		>
-			<div>...</div>
+			<form>
+				<label>
+					<span class="mb-1 block leading-5 text-gray-700">Имя*</span>
+					<input
+						type="text"
+						placeholder="Иван Иванов"
+						class="rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 placeholder:text-gray-500"
+					/>
+				</label>
+			</form>
 		</base-modal>
 	</main>
 </template>
