@@ -14,18 +14,11 @@
 
 		<base-input type="email" label="Email*" placeholder="you@example.com" />
 
-		<label class="sm:col-span-2 xl:col-span-1">
-			<span class="mb-1 block leading-5 text-gray-700">Город*</span>
-			<select
-				name="city"
-				id="city-select"
-				class="w-full appearance-none rounded-md border border-gray-300 bg-arrow-down bg-right bg-no-repeat bg-origin-content px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm"
-			>
-				<option value="1" selected>Москва</option>
-				<option value="2">Санкт-Петербург</option>
-				<option value="2">Казань</option>
-			</select>
-		</label>
+		<base-select name="city" id="city-select" label="Город*">
+			<option v-for="city in cityList" :key="city.id" :value="city.id">
+				{{ city.name }}
+			</option>
+		</base-select>
 
 		<base-button
 			label="Отправить"
@@ -43,7 +36,29 @@
 		directives: { maska: vMaska },
 
 		data() {
-			return {};
+			return {
+				formData: {
+					name: '',
+					phone: '',
+					email: '',
+					city_id: 1,
+				},
+
+				cityList: [
+					{
+						id: 1,
+						name: 'Москва',
+					},
+					{
+						id: 2,
+						name: 'Санкт-Петербург',
+					},
+					{
+						id: 3,
+						name: 'Казань',
+					},
+				],
+			};
 		},
 	};
 </script>
