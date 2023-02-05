@@ -18,14 +18,22 @@
 
 			color: {
 				type: String,
-				default: 'blue-500',
+				default: 'blue',
 			},
 		},
 
 		computed: {
 			colorClass() {
-				const color = this.color;
-				return `bg-${color}`;
+				switch (this.color) {
+					case 'blue':
+						return 'bg-blue-500';
+					case 'teal':
+						return 'bg-teal-600';
+					case 'green':
+						return 'bg-green-600';
+					default:
+						return 'bg-blue-500';
+				}
 			},
 		},
 	};

@@ -11,7 +11,7 @@
 		/>
 		<base-button
 			label="Заказать в Санкт-Петербург"
-			color="teal-600"
+			color="teal"
 			@click="modalVisible = true"
 		/>
 
