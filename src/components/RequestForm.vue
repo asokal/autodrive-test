@@ -2,34 +2,17 @@
 	<form
 		class="sm:grid-row-2 grid grid-cols-1 gap-5 sm:grid-cols-3 xl:grid-cols-4"
 	>
-		<label>
-			<span class="mb-1 block leading-5 text-gray-700">Имя*</span>
-			<input
-				type="text"
-				placeholder="Иван Иванов"
-				class="w-full rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm placeholder:text-gray-500"
-			/>
-		</label>
+		<base-input label="Имя*" placeholder="Иван Иванов" />
 
-		<label>
-			<span class="mb-1 block leading-5 text-gray-700">Телефон*</span>
-			<input
-				type="phone"
-				v-maska
-				data-maska="+7 (###) ###-##-##"
-				placeholder="+7 (___) ___-__-__"
-				class="w-full rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm placeholder:text-gray-500"
-			/>
-		</label>
+		<base-input
+			type="phone"
+			label="Телефон*"
+			v-maska
+			data-maska="+7 (###) ###-##-##"
+			placeholder="+7 (___) ___-__-__"
+		/>
 
-		<label>
-			<span class="mb-1 block leading-5 text-gray-700">Email*</span>
-			<input
-				type="email"
-				placeholder="you@example.com"
-				class="w-full rounded-md border border-gray-300 px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm placeholder:text-gray-500"
-			/>
-		</label>
+		<base-input type="email" label="Email*" placeholder="you@example.com" />
 
 		<label class="sm:col-span-2 xl:col-span-1">
 			<span class="mb-1 block leading-5 text-gray-700">Город*</span>
@@ -38,8 +21,9 @@
 				id="city-select"
 				class="w-full appearance-none rounded-md border border-gray-300 bg-arrow-down bg-right bg-no-repeat bg-origin-content px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm"
 			>
-				<option value="moscow" selected>Москва</option>
-				<option value="spb">Санкт-Петербург</option>
+				<option value="1" selected>Москва</option>
+				<option value="2">Санкт-Петербург</option>
+				<option value="2">Казань</option>
 			</select>
 		</label>
 
