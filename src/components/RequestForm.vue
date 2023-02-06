@@ -132,10 +132,6 @@
 			};
 		},
 
-		// beforeMount() {
-		// 	this.v$.$validate();
-		// },
-
 		methods: {
 			async submitForm() {
 				await this.v$.$validate();

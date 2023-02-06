@@ -7,22 +7,30 @@
 		<base-button
 			label="Заказать в Москву"
 			class="mb-2.5 sm:mb-0 sm:mr-5"
-			@click="modalVisible = true"
+			@click="requestModal = true"
 		/>
 		<base-button
 			label="Заказать в Санкт-Петербург"
 			color="teal"
-			@click="modalVisible = true"
+			@click="requestModal = true"
 		/>
-
-		<base-modal
-			title="Заказать звонок"
-			:show="modalVisible"
-			@close-modal="modalVisible = false"
-		>
-			<request-form />
-		</base-modal>
 	</main>
+
+	<base-modal
+		title="Заказать звонок"
+		:show="requestModal"
+		@close-modal="requestModal = false"
+	>
+		<request-form />
+	</base-modal>
+
+	<base-modal
+		title="Заказать звонок"
+		:show="resultModal"
+		@close-modal="resultModal = false"
+	>
+		Заявка отправлена!
+	</base-modal>
 </template>
 
 <script>
@@ -32,7 +40,8 @@
 
 		data() {
 			return {
-				modalVisible: false,
+				requestModal: false,
+				resultModal: false,
 			};
 		},
 	};
