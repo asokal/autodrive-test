@@ -1,6 +1,32 @@
-# Vue 3 + Vite
+# Autodrive agency test task
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Описание и требования: [Google Drive](https://drive.google.com/drive/folders/1-9AB2aKlYUFIXc3k9jhaX4x_7mdekl3l)
+
+Дизайн-макет: [Figma](https://www.figma.com/file/ebPiJdI9hKgQ1Qwar95mZD/Frontend---Junior---Test_7?node-id=0%3A1)
+
+## Project setup
+
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+
+```
+npm run dev
+```
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
+
+### Format code with Prettier
+
+```
+npm run format
+```
 
 ## Recommended IDE Setup
 
