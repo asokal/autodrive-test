@@ -7,12 +7,12 @@
 		<base-button
 			label="Заказать в Москву"
 			class="mb-2.5 sm:mb-0 sm:mr-5"
-			@click="requestModal = true"
+			@click="openRequestModal(1)"
 		/>
 		<base-button
 			label="Заказать в Санкт-Петербург"
 			color="teal"
-			@click="requestModal = true"
+			@click="openRequestModal(2)"
 		/>
 	</main>
 
@@ -43,6 +43,13 @@
 				requestModal: false,
 				resultModal: false,
 			};
+		},
+
+		methods: {
+			openRequestModal(cityId) {
+				this.requestModal = true;
+				this.$store.commit('setSelectedCity', cityId);
+			},
 		},
 	};
 </script>

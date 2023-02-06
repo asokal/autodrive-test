@@ -1,14 +1,36 @@
 import { createStore } from 'vuex';
 
-const store = createStore({
+export default createStore({
 	state() {
 		return {
-			count: 0,
+			modals: {
+				requestModal: false,
+				resultModal: false,
+			},
+
+			cities: {
+				selectedId: 1,
+
+				list: [
+					{
+						id: 1,
+						name: 'Москва',
+					},
+					{
+						id: 2,
+						name: 'Санкт-Петербург',
+					},
+					{
+						id: 3,
+						name: 'Казань',
+					},
+				],
+			},
 		};
 	},
 	mutations: {
-		increment(state) {
-			state.count++;
+		setSelectedCity(state, cityId) {
+			state.cities.selectedId = cityId;
 		},
 	},
 });

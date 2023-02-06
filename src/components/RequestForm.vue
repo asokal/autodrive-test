@@ -8,7 +8,7 @@
 			label="Имя*"
 			placeholder="Иван Иванов"
 			v-model="formData.name"
-			:error="valiData.errors.name"
+			:error="getErrorMessage('name')"
 		/>
 
 		<base-input
@@ -18,7 +18,7 @@
 			data-maska="+7 (###) ###-##-##"
 			placeholder="+7 (___) ___-__-__"
 			v-model="formData.phone"
-			:error="valiData.errors.phone"
+			:error="getErrorMessage('phone')"
 		/>
 
 		<base-input
@@ -26,7 +26,7 @@
 			label="Email*"
 			placeholder="you@example.com"
 			v-model="formData.email"
-			:error="valiData.errors.email"
+			:error="getErrorMessage('email')"
 		/>
 
 		<base-select
@@ -35,7 +35,7 @@
 			label="Город*"
 			v-model="formData.city_id"
 			rootClassList="sm:col-span-2 xl:col-span-1"
-			:error="valiData.errors.city_id"
+			:error="getErrorMessage('city_id')"
 		>
 			<option v-for="city in cityList" :key="city.id" :value="city.id">
 				{{ city.name }}
@@ -67,31 +67,12 @@
 					name: '',
 					phone: '',
 					email: '',
-					city_id: '1',
+					city_id: this.$store.state.cities.selectedId,
 				},
 
-				cityList: [
-					{
-						id: 1,
-						name: 'Москва',
-					},
-					{
-						id: 2,
-						name: 'Санкт-Петербург',
-					},
-					{
-						id: 3,
-						name: 'Казань',
-					},
-				],
+				cityList: this.$store.state.cities.list,
 
 				valiData: {
-					errors: {
-						name: false,
-						phone: false,
-						email: false,
-					},
-
 					errorMessages: {
 						empty: 'Обязательное поле',
 						incorrectEmail: 'Некорректный адрес',
@@ -141,26 +122,19 @@
 		},
 
 		methods: {
-			setErrors() {
-				let errorsFields = this.valiData.errors;
-				let vuelidateFormData = this.v$.formData;
-
-				for (let field in errorsFields) {
-					if (vuelidateFormData[field].$errors[0].$message) {
-						errorsFields[field] =
-							vuelidateFormData[field].$errors[0].$message;
-					}
-				}
-			},
-
 			async submitForm() {
 				await this.v$.$validate();
-				this.setErrors();
 
 				if (this.v$.$error) {
 					return console.log('Data is invalid!');
 				}
 				console.log('Done!');
+			},
+
+			getErrorMessage(field) {
+				return this.v$.formData[field].$error
+					? this.v$.formData[field].$errors[0].$message
+					: false;
 			},
 		},
 
