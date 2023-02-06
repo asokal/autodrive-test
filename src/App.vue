@@ -18,18 +18,45 @@
 
 	<base-modal
 		title="Заказать звонок"
-		:show="requestModal"
-		@close-modal="requestModal = false"
+		:show="$store.state.modals.requestModal"
+		class="w-full lg:w-7/12"
+		@close-modal="
+			$store.commit('setModal', {
+				name: 'requestModal',
+				open: false,
+			})
+		"
 	>
 		<request-form />
 	</base-modal>
 
 	<base-modal
 		title="Заказать звонок"
-		:show="resultModal"
-		@close-modal="resultModal = false"
+		:show="$store.state.modals.responseModal"
+		@close-modal="
+			$store.commit('setModal', {
+				name: 'responseModal',
+				open: false,
+			})
+		"
 	>
-		Заявка отправлена!
+		<div v-if="$store.state.requestFormResponse.success" class="mb-6">
+			Заявка успешно создана!
+		</div>
+
+		<div v-else class="mb-10">
+			Что-то пошло не так... Попробуем еще раз?.
+		</div>
+		<base-button
+			label="ОК"
+			@click="
+				$store.commit('setModal', {
+					name: 'responseModal',
+					open: false,
+				})
+			"
+			class="block"
+		/>
 	</base-modal>
 </template>
 
@@ -41,13 +68,16 @@
 		data() {
 			return {
 				requestModal: false,
-				resultModal: false,
+				responseModal: true,
 			};
 		},
 
 		methods: {
 			openRequestModal(cityId) {
-				this.requestModal = true;
+				this.$store.commit('setModal', {
+					name: 'requestModal',
+					open: true,
+				});
 				this.$store.commit('setSelectedCity', cityId);
 			},
 		},

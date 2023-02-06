@@ -73,12 +73,10 @@
 
 				cityList: this.$store.state.cities.list,
 
-				valiData: {
-					errorMessages: {
-						empty: 'Обязательное поле',
-						incorrectEmail: 'Некорректный адрес',
-						incorrectNumber: 'Некорректный номер',
-					},
+				validationMessages: {
+					empty: 'Обязательное поле',
+					incorrectEmail: 'Некорректный адрес',
+					incorrectNumber: 'Некорректный номер',
 				},
 			};
 		},
@@ -88,33 +86,33 @@
 				formData: {
 					name: {
 						required: helpers.withMessage(
-							this.valiData.errorMessages.empty,
+							this.validationMessages.empty,
 							required
 						),
 					},
 					phone: {
 						required: helpers.withMessage(
-							this.valiData.errorMessages.empty,
+							this.validationMessages.empty,
 							required
 						),
 						minLength: helpers.withMessage(
-							this.valiData.errorMessages.incorrectNumber,
+							this.validationMessages.incorrectNumber,
 							minLength(18)
 						),
 					},
 					email: {
 						required: helpers.withMessage(
-							this.valiData.errorMessages.empty,
+							this.validationMessages.empty,
 							required
 						),
 						minLength: helpers.withMessage(
-							this.valiData.errorMessages.incorrectEmail,
+							this.validationMessages.incorrectEmail,
 							email
 						),
 					},
 					city_id: {
 						required: helpers.withMessage(
-							this.valiData.errorMessages.empty,
+							this.validationMessages.empty,
 							required
 						),
 					},
@@ -138,8 +136,30 @@
 							city_id: this.formData.city_id,
 						}
 					);
+					this.$store.commit('setRequestFormResponse', {
+						success: true,
+						data: response.data,
+					});
+
+					this.$store.commit('setModal', {
+						name: 'responseModal',
+						open: true,
+					});
+					for (let field in this.formData) {
+						this.formData[field] = '';
+					}
+
 					console.log('Done!', response.data);
 				} catch (err) {
+					this.$store.commit('setRequestFormResponse', {
+						success: false,
+						data: err,
+					});
+
+					this.$store.commit('setModal', {
+						name: 'responseModal',
+						open: true,
+					});
 					console.log('Something went wrong...', err);
 				}
 			},

@@ -5,7 +5,12 @@ export default createStore({
 		return {
 			modals: {
 				requestModal: false,
-				resultModal: false,
+				responseModal: false,
+			},
+
+			requestFormResponse: {
+				success: false,
+				data: '',
 			},
 
 			cities: {
@@ -31,6 +36,18 @@ export default createStore({
 	mutations: {
 		setSelectedCity(state, cityId) {
 			state.cities.selectedId = cityId;
+		},
+
+		setRequestFormResponse(state, response) {
+			state.requestFormResponse = response;
+		},
+
+		setModal(state, modalData) {
+			for (let modal in state.modals) {
+				if (modal === modalData.name) {
+					state.modals[modal] = modalData.open;
+				}
+			}
 		},
 	},
 });
