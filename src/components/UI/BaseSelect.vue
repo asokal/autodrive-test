@@ -14,6 +14,13 @@
 				<option value="select" selected disabled>Select...</option>
 			</slot>
 		</select>
+
+		<span
+			class="absolute left-0 -bottom-5 text-xs font-normal text-red-500"
+			v-if="error"
+		>
+			{{ error }}
+		</span>
 	</label>
 </template>
 
@@ -36,6 +43,11 @@
 			modelValue: {
 				type: String,
 				default: '',
+			},
+
+			error: {
+				type: [String, Array, Boolean],
+				required: false,
 			},
 		},
 

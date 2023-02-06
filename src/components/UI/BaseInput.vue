@@ -1,5 +1,5 @@
 <template>
-	<label :class="`${rootClassList}`">
+	<label :class="`relative ${rootClassList}`">
 		<span class="mb-1 block leading-5 text-gray-700" v-if="label">
 			{{ label }}
 		</span>
@@ -12,6 +12,13 @@
 			@input="$emit('update:modelValue', $event.target.value)"
 			v-bind="$attrs"
 		/>
+
+		<span
+			class="absolute left-0 -bottom-5 text-xs font-normal text-red-500"
+			v-if="error"
+		>
+			{{ error }}
+		</span>
 	</label>
 </template>
 
