@@ -7,7 +7,7 @@
 		<select
 			class="w-full appearance-none rounded-md border border-gray-300 bg-arrow-down bg-right bg-no-repeat bg-origin-content px-3 py-2 font-normal leading-5 text-gray-900 shadow-sm"
 			:value="modelValue"
-			@select="$emit('update:modelValue', $event.target.value)"
+			@change="$emit('update:modelValue', $event.target.value)"
 			v-bind="$attrs"
 		>
 			<slot>
