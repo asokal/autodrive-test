@@ -4,6 +4,8 @@
 
 Дизайн-макет: [Figma](https://www.figma.com/file/ebPiJdI9hKgQ1Qwar95mZD/Frontend---Junior---Test_7?node-id=0%3A1)
 
+GitHub Pages: [asokal.github.io/autodrive-test/](https://asokal.github.io/autodrive-test/)
+
 ## Project setup
 
 ```

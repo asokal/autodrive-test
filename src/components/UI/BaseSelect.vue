@@ -1,5 +1,5 @@
 <template>
-	<label :class="`${rootClassList}`">
+	<label :class="`relative ${rootClassList}`">
 		<span class="mb-1 block leading-5 text-gray-700" v-if="label">
 			{{ label }}
 		</span>

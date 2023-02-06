@@ -128,7 +128,7 @@
 						return console.log('Data is invalid!');
 					}
 					const response = await axios.post(
-						'https://reqres.in/api/articles',
+						'http://hh.autodrive-agency.ru/test-tasks/front/task-7/',
 						{
 							name: this.formData.name,
 							phone: this.formData.phone.replace(/[^\d+]/g, ''),
@@ -168,12 +168,6 @@
 				return this.v$.formData[field].$error
 					? this.v$.formData[field].$errors[0].$message
 					: false;
-			},
-		},
-
-		computed: {
-			unmaskPhone() {
-				return this.formData.phone.replace(/[^\d+]/g, '');
 			},
 		},
 	};
