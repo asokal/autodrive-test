@@ -54,6 +54,7 @@
 	import { vMaska } from 'maska';
 	import { useVuelidate } from '@vuelidate/core';
 	import { required, email, minLength, helpers } from '@vuelidate/validators';
+	import axios from 'axios';
 
 	export default {
 		name: 'request-form',
@@ -67,7 +68,7 @@
 					name: '',
 					phone: '',
 					email: '',
-					city_id: this.$store.state.cities.selectedId,
+					city_id: String(this.$store.state.cities.selectedId),
 				},
 
 				cityList: this.$store.state.cities.list,
@@ -123,12 +124,24 @@
 
 		methods: {
 			async submitForm() {
-				await this.v$.$validate();
-
-				if (this.v$.$error) {
-					return console.log('Data is invalid!');
+				try {
+					const validation = await this.v$.$validate();
+					if (this.v$.$error) {
+						return console.log('Data is invalid!');
+					}
+					const response = await axios.post(
+						'https://reqres.in/api/articles',
+						{
+							name: this.formData.name,
+							phone: this.formData.phone.replace(/[^\d+]/g, ''),
+							email: this.formData.email,
+							city_id: this.formData.city_id,
+						}
+					);
+					console.log('Done!', response.data);
+				} catch (err) {
+					console.log('Something went wrong...', err);
 				}
-				console.log('Done!');
 			},
 
 			getErrorMessage(field) {
@@ -139,8 +152,8 @@
 		},
 
 		computed: {
-			unmaskData() {
-				this.formData.phone.replace(/[^\d+]/g, '');
+			unmaskPhone() {
+				return this.formData.phone.replace(/[^\d+]/g, '');
 			},
 		},
 	};
